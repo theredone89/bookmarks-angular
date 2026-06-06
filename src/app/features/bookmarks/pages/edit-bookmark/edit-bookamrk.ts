@@ -65,15 +65,6 @@ export class EditBookamrk implements OnInit {
       lastModifiedDate: new Date().toISOString(),
     };
 
-    if (!updatedBookmark.title || !updatedBookmark.link) {
-      this.snackBar.open('Title and link are required.', 'Close', {
-        duration: 5000,
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom',
-      });
-      return;
-    }
-
     this.bookmarksService.updateBookmark(updatedBookmark).subscribe({
       next: (bookmark) => {
         this.store.dispatch(BookmarkActions.editBookmark({ bookmark }));

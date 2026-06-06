@@ -23,17 +23,10 @@ export class AddBookmark {
   protected link = signal('');
 
   protected onAddBookmark(): void {
-    const title = this.title().trim();
-    const link = this.link().trim();
-
-    if (!title || !link) {
-      return;
-    }
-
     const newBookmark: IBookmark = {
       id: '',
-      title,
-      link,
+      title: this.title().trim(),
+      link: this.link().trim(),
       date: new Date().toISOString(),
       lastModifiedDate: new Date().toISOString(),
     };

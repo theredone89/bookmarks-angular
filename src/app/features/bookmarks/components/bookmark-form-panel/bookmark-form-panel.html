@@ -13,10 +13,13 @@
           <input
             matInput
             placeholder="Title of the page"
-            [value]="title()"
-            (input)="title.set($any($event.target).value)"
+            [formControl]="titleControl"
+            (blur)="onTitleBlur()"
           />
           <mat-icon matSuffix>title</mat-icon>
+          @if (titleControl.invalid && titleControl.touched) {
+            <mat-error>{{ getTitleErrorMessage() }}</mat-error>
+          }
         </mat-form-field>
 
         <mat-form-field class="link">
@@ -24,14 +27,17 @@
           <input
             matInput
             placeholder="Link of the page"
-            [value]="link()"
-            (input)="link.set($any($event.target).value)"
+            [formControl]="linkControl"
+            (blur)="onLinkBlur()"
           />
           <mat-icon matSuffix>link</mat-icon>
+          @if (linkControl.invalid && linkControl.touched) {
+            <mat-error>{{ getLinkErrorMessage() }}</mat-error>
+          }
         </mat-form-field>
 
         <mat-action-row class="action">
-          <button type="button" matButton="filled" (click)="submit.emit()">
+          <button type="button" matButton="filled" (click)="onSubmit()" [disabled]="!isFormValid()">
             {{ buttonText }}
           </button>
         </mat-action-row>
