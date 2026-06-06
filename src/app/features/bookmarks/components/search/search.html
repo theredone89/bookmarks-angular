@@ -1,0 +1,13 @@
+<div class="search-container">
+    <input
+      type="text"
+      placeholder="Search"
+      class="search-input"
+      [value]="query"
+      (input)="onInput($event)"
+      (keyup.enter)="onSearch()"
+    />
+    <button type="button" class="search-button" (click)="onSearch()">
+      <i class="material-icons">search</i>
+    </button>
+</div>

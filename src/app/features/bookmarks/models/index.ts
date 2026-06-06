@@ -1,0 +1,1 @@
+export type { IBookmark } from './bookmark.model';

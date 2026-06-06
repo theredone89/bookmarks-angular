@@ -1,0 +1,9 @@
+<nav>
+    <div class="container">
+        <a class="logo" routerLink="/"><img src="logo-dark.webp" alt="logo" class="logo-image"/></a>
+        <app-search (search)="onSearch($event)"></app-search>
+        <button routerLink="/add" class="add-button" matMiniFab aria-label="Example icon button with a menu icon">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</nav>

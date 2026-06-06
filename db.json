@@ -1,0 +1,47 @@
+{
+  "bookmarks": [
+    {
+      "id": "1",
+      "title": "MDN Web Docs",
+      "link": "https://developer.mozilla.org/",
+      "date": "2024-05-12T14:30:00Z",
+      "lastModifiedDate": "2024-05-12T14:30:00Z"
+    },
+    {
+      "id": "2",
+      "title": "GitHub",
+      "link": "https://github.com/",
+      "date": "2024-05-15T09:15:22Z",
+      "lastModifiedDate": "2024-06-01T11:40:00Z"
+    },
+    {
+      "id": "mZLAa8xjleE",
+      "title": "Material",
+      "link": "https://material.angular.dev/components/snack-bar/overview",
+      "date": "2026-06-05T23:34:05.725Z",
+      "lastModifiedDate": "2026-06-05T23:34:05.725Z"
+    },
+    {
+      "id": "0AcoXXWv6KM",
+      "title": "World of test",
+      "link": "http://test.com",
+      "date": "2026-06-05T23:55:46.473Z",
+      "lastModifiedDate": "2026-06-06T00:15:58.811Z"
+    },
+    {
+      "id": "today-bookmark",
+      "title": "Today Bookmark",
+      "link": "https://example.com/today",
+      "date": "2026-06-06T10:00:00.000Z",
+      "lastModifiedDate": "2026-06-06T10:00:00.000Z"
+    },
+    {
+      "id": "yesterday-bookmark",
+      "title": "Yesterday Bookmark",
+      "link": "https://example.com/yesterday",
+      "date": "2026-06-05T10:00:00.000Z",
+      "lastModifiedDate": "2026-06-05T10:00:00.000Z"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

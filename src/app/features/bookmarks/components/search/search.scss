@@ -1,0 +1,36 @@
+:root {
+    height: 100%;
+}
+
+.search-container {
+    display: flex;
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    min-width: 300px;
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: none;
+    font-size: 16px;
+    font-family: system-ui;
+    font-weight: 200;
+    color: #111;
+
+    &::placeholder {
+        color: #333;
+        font-style: italic;
+    }
+}
+
+.search-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+

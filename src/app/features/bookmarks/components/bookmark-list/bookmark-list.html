@@ -1,0 +1,38 @@
+<div class="container">
+  @if (todayBookmarks.length > 0) {
+    <h2 class="day">Today</h2>
+    <ul class="bookmark-list">
+      @for (bookmark of todayBookmarks; track bookmark) {
+        <li class="bookmark-item">
+          <app-bookmark-item [bookmark]="bookmark"></app-bookmark-item>
+        </li>
+      }
+    </ul>
+  }
+
+  @if (yesterdayBookmarks.length > 0) {
+    <h2 class="day">Yesterday</h2>
+    <ul class="bookmark-list">
+      @for (bookmark of yesterdayBookmarks; track bookmark) {
+        <li class="bookmark-item">
+          <app-bookmark-item [bookmark]="bookmark"></app-bookmark-item>
+        </li>
+      }
+    </ul>
+  }
+
+  @if (olderBookmarks.length > 0) {
+    <h2 class="day">Older</h2>
+    <ul class="bookmark-list">
+      @for (bookmark of olderBookmarks; track bookmark) {
+        <li class="bookmark-item">
+          <app-bookmark-item [bookmark]="bookmark"></app-bookmark-item>
+        </li>
+      }
+    </ul>
+  }
+
+  @if (todayBookmarks.length === 0 && yesterdayBookmarks.length === 0 && olderBookmarks.length === 0) {
+    <div class="no-results">No bookmarks found.</div>
+  }
+</div>

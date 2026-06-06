@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="icon-container">
+        <mat-icon>bookmark</mat-icon>
+    </div>
+    <div class="content">
+        <div class="title">
+            {{ bookmark.title }}
+        </div>
+        <a class="link" href="{{ bookmark.link }}">
+            {{ bookmark.link }}
+        </a>
+    </div>
+    <div class="button-container">
+        <button matIconButton routerLink="/edit/{{ bookmark.id }}">
+            <mat-icon>edit</mat-icon>
+        </button>
+    </div>
+    <div class="button-container">
+        <button matIconButton (click)="delete(bookmark.id)">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+</div>
