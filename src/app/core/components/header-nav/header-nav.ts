@@ -4,6 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { Router } from '@angular/router';
 import { BookmarkApi } from '../../../features/bookmarks/services/bookmark-api.service';
 import { BookmarkActions, BookmarkApiActions } from '../../../features/bookmarks/state/bookmark.action';
 
@@ -16,11 +17,14 @@ import { BookmarkActions, BookmarkApiActions } from '../../../features/bookmarks
 export class HeaderNav {
   private readonly store = inject(Store);
   private readonly bookmarksService = inject(BookmarkApi);
+  private readonly router = inject(Router);
 
   protected onSearch(query: string): void {
     this.bookmarksService.getBookmarks().subscribe((bookmarks) => {
       this.store.dispatch(BookmarkApiActions.retrievedBookmarkList({ bookmarks }));
       this.store.dispatch(BookmarkActions.searchBookmarks({ query }));
+
+      this.router.navigate(['/search'], { queryParams: { q: query } });
     });
   }
 }

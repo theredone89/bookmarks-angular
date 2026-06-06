@@ -1,6 +1,43 @@
-# BookmarksAngular
+# Bookmarks Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.14.
+A modern bookmark management application built with Angular. Organize, search, and manage your web bookmarks with ease.
+
+## Overview
+
+Bookmarks Angular is a fully-featured bookmark manager that allows you to save, organize, edit, and delete web bookmarks. The application uses a local JSON database powered by json-server, with state management through NgRx for a seamless user experience.
+
+## Technologies
+
+- **Angular 21+**: Modern standalone components with signals and reactive patterns
+- **Material Design**: Angular Material components for a polished UI
+- **NgRx**: Predictable state management for bookmark data and search queries
+- **TypeScript**: Strict type safety throughout the application
+- **json-server**: Mock API backend with persistent JSON database
+- **Vitest**: Fast unit testing framework
+
+## Features & Capabilities
+
+- **Add Bookmarks**: Create new bookmarks with title and URL
+- **Edit Bookmarks**: Modify existing bookmark details
+- **Delete Bookmarks**: Remove bookmarks from your collection
+- **Search & Filter**: Fuzzy search across all bookmarks (filters by title and URL)
+- **Auto-reset Search**: Search clears automatically when you delete the query
+- **Date-based Grouping**: Bookmarks organized into Today, Yesterday, and Older sections
+- **Persistent Storage**: All bookmarks saved to local database via json-server
+- **Responsive UI**: Material Design components for a modern interface
+- **Error Handling**: User-friendly snackbar notifications for all actions
+
+## Getting Started
+
+### Start the Database
+
+Before running the application, start the json-server backend:
+
+```bash
+npm run startdb
+```
+
+The API will be available at `http://localhost:3000`.
 
 ## Development server
 

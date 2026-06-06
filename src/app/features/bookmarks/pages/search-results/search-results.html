@@ -1,0 +1,9 @@
+<div class="container">
+  @if (query() && bookmarks().length > 0) {
+    <div class="results-header">
+      <p>Results for: {{ query() }}</p>
+    </div>
+  }
+
+  <app-bookmar-list [bookmarks]="bookmarks()!"></app-bookmar-list>
+</div>

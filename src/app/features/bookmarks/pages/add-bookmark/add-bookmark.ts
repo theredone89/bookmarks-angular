@@ -1,19 +1,15 @@
 import { Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { MatFormField } from "@angular/material/form-field";
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { BookmarkActions } from '../../state/bookmark.action';
 import { BookmarkApi } from '../../services/bookmark-api.service';
 import { IBookmark } from '../../models/bookmark.model';
+import { BookmarkFormPanel } from '../../components/bookmark-form-panel/bookmark-form-panel';
 
 @Component({
   selector: 'app-add-bookmark',
-  imports: [MatFormField, MatIconModule, MatInputModule, MatExpansionModule, MatButtonModule, MatSnackBarModule],
+  imports: [BookmarkFormPanel],
   templateUrl: './add-bookmark.html',
   styleUrl: './add-bookmark.scss',
 })
@@ -50,7 +46,6 @@ export class AddBookmark {
         this.router.navigate(['/']);
       },
       error: (error) => {
-        console.error('Failed to add bookmark', error);
         this.snackBar.open('Failed to add bookmark. Please try again.', 'Close', {
           duration: 5000,
           horizontalPosition: 'center',

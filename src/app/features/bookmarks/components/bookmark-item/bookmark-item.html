@@ -7,7 +7,7 @@
             {{ bookmark.title }}
         </div>
         <a class="link" href="{{ bookmark.link }}">
-            {{ bookmark.link }}
+            {{ bookmark.link | truncateUrl }}
         </a>
     </div>
     <div class="button-container">

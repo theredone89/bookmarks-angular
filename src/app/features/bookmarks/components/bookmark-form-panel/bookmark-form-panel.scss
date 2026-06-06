@@ -1,0 +1,37 @@
+@use '@angular/material' as mat;
+
+.container {
+  --mat-padding: 24px;
+
+  padding: 30px;
+  width: 60%;
+  margin: auto;
+
+  @include mat.expansion-overrides((
+    header-disabled-state-text-color: #333,
+    header-description-color: #888,
+    actions-divider-color: #dfdfdf
+  ));
+  @include mat.form-field-overrides((
+    filled-container-color: transparent
+  ));
+}
+
+.mat-expansion-panel-header[aria-disabled="true"] .mat-expansion-panel-header-description {
+  color: var(--mat-expansion-header-description-color, var(--mat-sys-on-surface-variant));
+}
+
+.title {
+  width: 33%;
+  box-sizing: border-box;
+}
+
+.link {
+  width: calc(78% - (var(--mat-padding) * 4 + 20px));
+  box-sizing: border-box;
+  margin-left: 20px;
+}
+
+.action {
+  margin-top: 20px;
+}

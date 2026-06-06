@@ -14,6 +14,11 @@ const selectSearchQuery = createSelector(
   (state) => state.query.trim().toLowerCase()
 );
 
+export const selectQuery = createSelector(
+  selectBookmarkState,
+  (state) => state.query
+);
+
 const matchesQuery = (bookmark: IBookmark, query: string): boolean => {
   if (!query) {
     return true;

@@ -1,45 +1,11 @@
-<div class="container">
-  <ng-container *ngIf="selectedBookmark(); else loading">
-    <mat-accordion>
-      <mat-expansion-panel hideToggle expanded disabled>
-        <mat-expansion-panel-header>
-          <mat-panel-title>Edit Bookmark</mat-panel-title>
-          <mat-panel-description>Update title and link</mat-panel-description>
-          <mat-icon>edit</mat-icon>
-        </mat-expansion-panel-header>
-
-        <div>
-          <mat-form-field class="title">
-            <mat-label>Title</mat-label>
-            <input
-              matInput
-              placeholder="Title of the page"
-              [value]="title()"
-              (input)="title.set($any($event.target).value)"
-            />
-            <mat-icon matSuffix>title</mat-icon>
-          </mat-form-field>
-
-          <mat-form-field class="link">
-            <mat-label>Link</mat-label>
-            <input
-              matInput
-              placeholder="Link of the page"
-              [value]="link()"
-              (input)="link.set($any($event.target).value)"
-            />
-            <mat-icon matSuffix>link</mat-icon>
-          </mat-form-field>
-
-          <mat-action-row class="action">
-            <button type="button" matButton="filled" (click)="onSave()">Save Bookmark</button>
-          </mat-action-row>
-        </div>
-      </mat-expansion-panel>
-    </mat-accordion>
-  </ng-container>
-
-  <ng-template #loading>
-    <p>Loading bookmark...</p>
-  </ng-template>
-</div>
+<ng-container>
+    @if (selectedBookmark()) {
+    <app-bookmark-form-panel [panelTitle]="'Edit Bookmark'" [panelDescription]="'Update title and link'" icon="edit"
+        buttonText="Save Bookmark" [title]="title" [link]="link" (submit)="onSave()"></app-bookmark-form-panel>
+    } 
+    @else {
+    <div class="container">
+        <p>Loading bookmark...</p>
+    </div>
+    }
+</ng-container>

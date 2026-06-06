@@ -3,9 +3,9 @@
     {
       "id": "1",
       "title": "MDN Web Docs",
-      "link": "https://developer.mozilla.org/",
+      "link": "https://developer.mozilla.org/1",
       "date": "2024-05-12T14:30:00Z",
-      "lastModifiedDate": "2024-05-12T14:30:00Z"
+      "lastModifiedDate": "2026-06-06T10:48:56.401Z"
     },
     {
       "id": "2",
@@ -31,9 +31,9 @@
     {
       "id": "today-bookmark",
       "title": "Today Bookmark",
-      "link": "https://example.com/today",
+      "link": "https://example.com/today/",
       "date": "2026-06-06T10:00:00.000Z",
-      "lastModifiedDate": "2026-06-06T10:00:00.000Z"
+      "lastModifiedDate": "2026-06-06T12:37:52.716Z"
     },
     {
       "id": "yesterday-bookmark",
@@ -41,6 +41,13 @@
       "link": "https://example.com/yesterday",
       "date": "2026-06-05T10:00:00.000Z",
       "lastModifiedDate": "2026-06-05T10:00:00.000Z"
+    },
+    {
+      "id": "4BvPUIpRaQk",
+      "title": "Youtube",
+      "link": "https://youtube.com/",
+      "date": "2026-06-06T12:29:09.473Z",
+      "lastModifiedDate": "2026-06-06T12:37:26.845Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

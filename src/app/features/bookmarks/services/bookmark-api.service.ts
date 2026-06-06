@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
+import { environment } from '../../../../environments/environment';
 import { IBookmark } from '../models/bookmark.model';
 
 
@@ -9,7 +10,7 @@ import { IBookmark } from '../models/bookmark.model';
 })
 export class BookmarkApi {
   private readonly http = inject(HttpClient);
-  private readonly bookmarksUrl = 'http://localhost:3000/bookmarks';
+  private readonly bookmarksUrl = `${environment.apiUrl}/bookmarks`;
 
   getBookmarks(): Observable<IBookmark[]> {
     return this.http

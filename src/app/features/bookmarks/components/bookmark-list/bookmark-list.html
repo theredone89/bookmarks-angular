@@ -2,7 +2,7 @@
   @if (todayBookmarks.length > 0) {
     <h2 class="day">Today</h2>
     <ul class="bookmark-list">
-      @for (bookmark of todayBookmarks; track bookmark) {
+      @for (bookmark of todayBookmarks; track bookmark.id) {
         <li class="bookmark-item">
           <app-bookmark-item [bookmark]="bookmark"></app-bookmark-item>
         </li>
@@ -13,7 +13,7 @@
   @if (yesterdayBookmarks.length > 0) {
     <h2 class="day">Yesterday</h2>
     <ul class="bookmark-list">
-      @for (bookmark of yesterdayBookmarks; track bookmark) {
+      @for (bookmark of yesterdayBookmarks; track bookmark.id) {
         <li class="bookmark-item">
           <app-bookmark-item [bookmark]="bookmark"></app-bookmark-item>
         </li>
@@ -24,7 +24,7 @@
   @if (olderBookmarks.length > 0) {
     <h2 class="day">Older</h2>
     <ul class="bookmark-list">
-      @for (bookmark of olderBookmarks; track bookmark) {
+      @for (bookmark of olderBookmarks; track bookmark.id) {
         <li class="bookmark-item">
           <app-bookmark-item [bookmark]="bookmark"></app-bookmark-item>
         </li>

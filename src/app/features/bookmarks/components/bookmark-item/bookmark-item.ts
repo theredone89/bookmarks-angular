@@ -5,12 +5,13 @@ import { MatIcon } from "@angular/material/icon";
 import { MatIconButton } from '@angular/material/button';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterLink } from '@angular/router';
+import { TruncateUrlPipe } from '../../../../shared/pipes/truncate-url-pipe';
 import { BookmarkApi } from '../../services/bookmark-api.service';
 import { BookmarkActions } from '../../state/bookmark.action';
 
 @Component({
   selector: 'app-bookmark-item',
-  imports: [MatIcon, MatIconButton, MatSnackBarModule, RouterLink],
+  imports: [MatIcon, MatIconButton, MatSnackBarModule, RouterLink, TruncateUrlPipe],
   templateUrl: './bookmark-item.html',
   styleUrl: './bookmark-item.scss',
 })

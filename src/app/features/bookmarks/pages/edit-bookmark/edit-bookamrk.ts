@@ -1,25 +1,20 @@
-import { Component, computed, effect, inject, signal } from '@angular/core';
-import { NgIf } from '@angular/common';
+import { Component, computed, effect, inject, signal, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { MatFormField } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { BookmarkApi } from '../../services/bookmark-api.service';
-import { BookmarkActions } from '../../state/bookmark.action';
+import { BookmarkActions, BookmarkApiActions } from '../../state/bookmark.action';
 import { selectBookmarks } from '../../state/bookmark.selector';
 import { IBookmark } from '../../models/bookmark.model';
+import { BookmarkFormPanel } from '../../components/bookmark-form-panel/bookmark-form-panel';
 
 @Component({
   selector: 'app-edit-bookamrk',
-  imports: [NgIf, MatFormField, MatIconModule, MatInputModule, MatExpansionModule, MatButtonModule, MatSnackBarModule],
+  imports: [BookmarkFormPanel],
   templateUrl: './edit-bookamrk.html',
   styleUrl: './edit-bookamrk.scss',
 })
-export class EditBookamrk {
+export class EditBookamrk implements OnInit {
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly store = inject(Store);
@@ -45,6 +40,12 @@ export class EditBookamrk {
       this.link.set(bookmark.link);
     }
   });
+
+  ngOnInit(): void {
+    this.bookmarksService.getBookmarks().subscribe((bookmarks) =>
+      this.store.dispatch(BookmarkApiActions.retrievedBookmarkList({ bookmarks }))
+    );
+  }
 
   protected onSave(): void {
     const bookmark = this.selectedBookmark();
@@ -79,7 +80,6 @@ export class EditBookamrk {
         this.router.navigate(['/']);
       },
       error: (error) => {
-        console.error('Failed to save bookmark', error);
         this.snackBar.open('Failed to save bookmark. Please try again.', 'Close', {
           duration: 5000,
           horizontalPosition: 'center',

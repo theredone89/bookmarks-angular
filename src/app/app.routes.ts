@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { Home, EditBookamrk, AddBookmark } from './features/bookmarks/pages';
+import { Home, EditBookamrk, AddBookmark, SearchResults } from './features/bookmarks/pages';
 
 export const routes: Routes = [
   {
@@ -16,5 +16,11 @@ export const routes: Routes = [
     path: 'add',
     component: AddBookmark,
     title: 'Add Bookmark'
+  }
+  ,
+  {
+    path: 'search',
+    component: SearchResults,
+    title: 'Search Results'
   }
 ];
