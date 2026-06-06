@@ -75,7 +75,7 @@ q::before, q::after) {
 main {
   padding: 120px;
     
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width >= 768px) {
       padding-top: 60px;
     }
 }
