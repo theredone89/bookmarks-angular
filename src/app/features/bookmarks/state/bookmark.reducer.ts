@@ -12,7 +12,7 @@ export const initialState: BookmarkState = {
   query: '',
 };
 
-export const booksReducer = createReducer(
+export const bookmarkReducer = createReducer(
   initialState,
   on(BookmarkApiActions.retrievedBookmarkList, (state, { bookmarks }) => ({
     ...state,

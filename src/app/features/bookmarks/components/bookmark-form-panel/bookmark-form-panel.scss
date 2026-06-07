@@ -3,18 +3,18 @@
 .container {
   --mat-padding: 24px;
 
-  padding: 30px;
-  width: 60%;
+  padding-block: 20px;
   margin: auto;
 
-  @include mat.expansion-overrides((
-    header-disabled-state-text-color: #333,
-    header-description-color: #888,
-    actions-divider-color: #dfdfdf
-  ));
-  @include mat.form-field-overrides((
-    filled-container-color: transparent
-  ));
+  @media screen and (width >=768px) {
+    padding: 30px;
+    width: 60%;
+  }
+
+  @include mat.expansion-overrides((header-disabled-state-text-color: #333,
+      header-description-color: #888,
+      actions-divider-color: #dfdfdf));
+  @include mat.form-field-overrides((filled-container-color: transparent));
 }
 
 .mat-expansion-panel-header[aria-disabled="true"] .mat-expansion-panel-header-description {
@@ -22,16 +22,68 @@
 }
 
 .title {
-  width: 33%;
   box-sizing: border-box;
+
+  @media screen and (width >=768px) {
+    width: 33%;
+  }
 }
 
 .link {
-  width: calc(78% - (var(--mat-padding) * 4 + 20px));
   box-sizing: border-box;
-  margin-left: 20px;
+
+  @media screen and (width >=768px) {
+    width: calc(78% - (var(--mat-padding) * 4 + 20px));
+    margin-left: 20px;
+  }
 }
 
 .action {
   margin-top: 20px;
+}
+
+.field-container {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (width >=768px) {
+    display: block;
+  }
+}
+
+.panel-header {
+  @media screen and (width < 768px) {
+    height: auto;
+    padding: 12px 24px;
+  }
+
+
+  &::ng-deep .mat-content {
+    @media screen and (width < 768px) {
+      display: grid;
+      grid-template-areas: 'title icon'
+        'desc icon';
+      grid-template-columns: 1fr auto;  
+    }
+  }
+}
+
+.panel-title {
+  @media screen and (width < 768px) {
+    grid-area: title;
+  }
+}
+
+.panel-desc {
+  @media screen and (width < 768px) {
+    grid-area: desc;
+  }
+}
+
+.pannel-icon {
+  @media screen and (width < 768px) {
+    grid-area: icon;
+    grid-row: span 2;
+    place-self: center;
+  }
 }

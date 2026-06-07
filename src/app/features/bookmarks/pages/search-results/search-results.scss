@@ -1,12 +1,11 @@
 @use '@angular/material' as mat;
 
 .container {
-  padding: 30px;
   margin: auto;
 }
 
 .results-header {
-  width: 500px;
+  width: min(500px, 100%);
   margin: auto;
 
   p {

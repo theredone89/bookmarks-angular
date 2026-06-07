@@ -9,7 +9,6 @@
 
 .search-input {
     width: 100%;
-    min-width: 300px;
     padding: 8px 20px;
     border-radius: 20px;
     border: none;
@@ -17,6 +16,10 @@
     font-family: system-ui;
     font-weight: 200;
     color: #111;
+
+    @media screen and (width >= 768px) {
+       min-width: 300px;
+    }
 
     &::placeholder {
         color: #333;

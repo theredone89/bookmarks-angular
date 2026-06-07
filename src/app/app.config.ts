@@ -3,7 +3,7 @@ import { provideRouter} from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { routes } from './app.routes';
 import { provideStore } from '@ngrx/store';
-import { booksReducer } from './features/bookmarks/state/bookmark.reducer';
+import { bookmarkReducer} from './features/bookmarks/state/bookmark.reducer';
 
 
 export const appConfig: ApplicationConfig = {
@@ -12,7 +12,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideRouter(routes), 
     provideStore({
-      bookmarks: booksReducer
+      bookmarks: bookmarkReducer
     })
   ],
 };

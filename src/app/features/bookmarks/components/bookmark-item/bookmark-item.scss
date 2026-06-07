@@ -1,13 +1,22 @@
 .container {
-    display: flex;
-    padding: 20px;
+    display: grid;
+    padding-block: 20px;
     gap: 20px;
     width: 100%;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    grid-template-columns: auto 1fr auto auto;
 }
 
 .content {
-    flex-grow: 1;
+    width: 100%;
+    overflow: hidden;
+}
+
+.item-link {
+    width: 100%;
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;
 }

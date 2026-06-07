@@ -1,13 +1,13 @@
 <div class="container">
   <mat-accordion>
     <mat-expansion-panel hideToggle expanded disabled>
-      <mat-expansion-panel-header>
-        <mat-panel-title>{{ panelTitle }}</mat-panel-title>
-        <mat-panel-description>{{ panelDescription }}</mat-panel-description>
-        <mat-icon>{{ icon }}</mat-icon>
+      <mat-expansion-panel-header class="panel-header">
+        <mat-panel-title class="panel-title">{{ panelTitle }}</mat-panel-title>
+        <mat-panel-description class="panel-desc">{{ panelDescription }}</mat-panel-description>
+        <mat-icon class="pannel-icon">{{ icon }}</mat-icon>
       </mat-expansion-panel-header>
 
-      <div>
+      <div class="field-container">
         <mat-form-field class="title">
           <mat-label>Title</mat-label>
           <input

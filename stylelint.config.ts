@@ -12,6 +12,7 @@ export default {
     'shorthand-property-no-redundant-values': true,
     'declaration-block-no-redundant-longhand-properties': true,
     'no-unknown-animations': null,
-    'no-invalid-double-slash-comments': null
+    'no-invalid-double-slash-comments': null,
+    'selector-pseudo-element-no-unknown': null
   }
 } satisfies Config;

@@ -28,11 +28,9 @@ export class BookmarkFormPanel implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
 
   ngOnInit(): void {
-    // Initialize form controls with signal values
     this.titleControl.setValue(this.title());
     this.linkControl.setValue(this.link());
 
-    // Sync form controls to signals
     this.titleControl.valueChanges
       .pipe(debounceTime(2000), takeUntil(this.destroy$))
       .subscribe((value) => {
@@ -44,19 +42,6 @@ export class BookmarkFormPanel implements OnInit, OnDestroy {
       .subscribe((value) => {
         this.link.set(value || '');
       });
-
-    // Mark as touched on blur to show errors
-    this.titleControl.statusChanges.pipe(takeUntil(this.destroy$)).subscribe(() => {
-      if (this.titleControl.untouched) {
-        // Will be set on blur
-      }
-    });
-
-    this.linkControl.statusChanges.pipe(takeUntil(this.destroy$)).subscribe(() => {
-      if (this.linkControl.untouched) {
-        // Will be set on blur
-      }
-    });
   }
 
   protected onTitleBlur(): void {

@@ -17,27 +17,43 @@ export class BookmarkList {
     return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
   }
 
+  private getStartOfDay(dateValue: string): number {
+    const date = new Date(dateValue);
+    date.setHours(0, 0, 0, 0);
+    return date.getTime();
+  }
+
+  private groupBookmarksByDate(): Record<string, ReadonlyArray<IBookmark>> {
+    return this.bookmarks.reduce((groups, bookmark) => {
+      const key = this.getDateKey(bookmark.date);
+      const list = groups[key] ? [...groups[key], bookmark] : [bookmark];
+      groups[key] = list;
+      return groups;
+    }, {} as Record<string, ReadonlyArray<IBookmark>>);
+  }
+
+  protected get groupedBookmarks(): Record<string, ReadonlyArray<IBookmark>> {
+    return this.groupBookmarksByDate();
+  }
+
   protected get todayBookmarks(): ReadonlyArray<IBookmark> {
-    const todayKey = this.getDateKey(new Date().toISOString());
-    return this.bookmarks.filter((bookmark) => this.getDateKey(bookmark.date) === todayKey);
+    return this.groupedBookmarks[this.getDateKey(new Date().toISOString())] ?? [];
   }
 
   protected get yesterdayBookmarks(): ReadonlyArray<IBookmark> {
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
-    const yesterdayKey = this.getDateKey(yesterday.toISOString());
-    return this.bookmarks.filter((bookmark) => this.getDateKey(bookmark.date) === yesterdayKey);
+    return this.groupedBookmarks[this.getDateKey(yesterday.toISOString())] ?? [];
   }
 
   protected get olderBookmarks(): ReadonlyArray<IBookmark> {
-    const todayKey = this.getDateKey(new Date().toISOString());
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
-    const yesterdayKey = this.getDateKey(yesterday.toISOString());
+    yesterday.setHours(0, 0, 0, 0);
 
     return this.bookmarks.filter((bookmark) => {
-      const dateKey = this.getDateKey(bookmark.date);
-      return dateKey !== todayKey && dateKey !== yesterdayKey;
+      const bookmarkDay = this.getStartOfDay(bookmark.date);
+      return bookmarkDay < yesterday.getTime();
     });
   }
 }
